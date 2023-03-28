@@ -24,4 +24,4 @@ char *_strcpy(char *dest, const char *src)
 	}
 
 	return (dest);
-}i
+}
