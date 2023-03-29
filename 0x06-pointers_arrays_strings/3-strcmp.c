@@ -16,8 +16,3 @@ return (s1[i] - s2[i]);
 }
 return (0);
 }
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-
-
