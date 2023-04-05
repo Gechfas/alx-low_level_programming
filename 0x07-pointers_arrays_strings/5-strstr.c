@@ -1,35 +1,44 @@
-#include <string.h>
-/**
- * _strstr - locates a substring
- * @haystack: string to search
- * @needle: substring to find
- * Return: pointer to start of needle
- * in haystack
+/*
+ * File: 5-strstr.c
+ * Auth: Brennan D Baraban
  */
 
- char *_strstr(char *haystack, char *needle)
+#include "main.h"
+
+/**
+ * _strstr - Locates a substring.
+ * @haystack: The string to be searched.
+ * @needle: The substring to be located.
+ *
+ * Return: If the substring is located - a pointer to the beginning
+ *                                       of the located substring.
+ *         If the substring is not located - NULL.
+ */
+
+char *_strstr(char *haystack, char *needle)
 {
-char *occurance, *tempNeedle;
-if (!*needle) /* empty needle */
-return (haystack);
-while (*haystack)
-{
-if(stack == *needle) /* first ch match */
-{
-occurance = haystack;
-tempNeedle = needle;
-while (*tempNeedle) /* check if match */
-{
-if (*haystack++ != *tempNeedle++)
-{ /* not a match, reset pointer to first occurance */
-haystack = occurance;
-break;
-}
-}
-if (occurance != haystack) /* didn't reset, found match */
-return (occurance);
-}
-haystack++;
-}
-return (0); /* didn't find match */
+	int index;
+
+	if (*needle == 0)
+		return (haystack);
+
+	while (*haystack)
+	{
+		index = 0;
+
+		if (haystack[index] == needle[index])
+		{
+			do {
+				if (needle[index + 1] == '\0')
+					return (haystack);
+
+				index++;
+
+			} while (haystack[index] == needle[index]);
+		}
+
+		haystack++;
+	}
+
+	return ('\0');
 }
