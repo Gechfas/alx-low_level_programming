@@ -1,21 +1,24 @@
 #include "main.h"
+
 /**
- * clear_bit - Entry Point
- * @n: input
- * @index: index
- * Return: 0
+ * clear_bit -  Sets the value of a bit to 0 at a given index
+ *
+ * @n: long int
+ *
+ * @index: unsigned int
+ *
+ * Return: 1 if works -1 on failure
  */
+
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int bits;
+	unsigned long int mask = 1 << index;
 
-	if (n == NULL)
+		if (index < sizeof(n) * 8)
+		{
+			*n = (*n & ~mask);
+			return (1);
+		}
+
 		return (-1);
-
-	bits = 1 << index;
-
-	if ((bits | *n) == *n)
-		*n = *n ^ bits;
-
-	return (1);
 }
